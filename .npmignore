@@ -1,0 +1,11 @@
+.circleci
+.DS_Store
+.editorconfig
+.github
+CONTRIBUTING.md
+node_modules
+package-lock.json
+PULL_REQUEST_TEMPLATE.md
+react-native-save-view-*.tgz
+android/*.iml
+android/build

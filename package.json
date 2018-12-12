@@ -1,0 +1,25 @@
+{
+  "name": "react-native-save-view",
+  "version": "0.1.0",
+  "description": "React native save View implementation",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native react-component view android ios screenshot viewshot"
+  ],
+  "author": "Maksym Rusynyk <m.rusynyk@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "0.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rumax/react-native-SaveView.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rumax/react-native-SaveView/issues"
+  },
+  "homepage": "https://github.com/rumax/react-native-SaveView#readme"
+}
