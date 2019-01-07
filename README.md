@@ -1,6 +1,7 @@
 
 # react-native-save-view
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87b93c7986514ee2829370b17423a6e2)](https://www.codacy.com/app/rumax/react-native-SaveView?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rumax/react-native-SaveView&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/rumax/react-native-SaveView)
 [![npm version](https://badge.fury.io/js/react-native-save-view.svg)](https://badge.fury.io/js/react-native-save-view)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -41,10 +42,10 @@ export default class App extends Component {
 ```
 
 ## Methods
-Name | Android | iOS | Description
----- | ------- | --- | -----------
-saveToPNG | ✓ | ✗ | Save View to PNG file. Before the function is called, check that android has [write to file permissions](https://developer.android.com/training/data-storage/files)
-saveToPNGBase64 | ✓ | ✗ | Save View to PNG base64
+Name|Android|iOS|Description|
+----|-------|---|-----------|
+saveToPNG|✓|✗|Save View to PNG file. Before the function is called, check that android has [write to file permissions](https://developer.android.com/training/data-storage/files)|
+saveToPNGBase64|✓|✗|Save View to PNG base64|
 
 ## License
 
