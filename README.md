@@ -1,10 +1,10 @@
-
 # react-native-save-view
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/87b93c7986514ee2829370b17423a6e2)](https://www.codacy.com/app/rumax/react-native-SaveView?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rumax/react-native-SaveView&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/rumax/react-native-SaveView)
 [![npm version](https://badge.fury.io/js/react-native-save-view.svg)](https://badge.fury.io/js/react-native-save-view)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frumax%2Freact-native-SaveView.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frumax%2Freact-native-SaveView?ref=badge_shield)
 
 Library for saving React Native View/ScrollView elements
 
@@ -50,6 +50,9 @@ saveToPNGBase64|✓|✗|Save View to PNG base64|
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frumax%2Freact-native-SaveView.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frumax%2Freact-native-SaveView?ref=badge_large)
 
 ## Author
 
