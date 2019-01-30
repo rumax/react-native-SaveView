@@ -30,12 +30,12 @@ export default class App extends Component {
   }
 
   async _makeSnapshotPNG() {
-    await SaveView.saveToPNG(ref, '/sdcard/Download/view.png');
+    await RNSaveView.saveToPNG(ref, '/sdcard/Download/view.png');
     // Check /sdcard/Download/view.png using Device File Explorer
   }
 
   async _makeSnapshotPNGBase64() {
-    const base64 = await SaveView.saveToPNGBase64(ref);
+    const base64 = await RNSaveView.saveToPNGBase64(ref);
     console.log('base64:', base64);
   }
 }
@@ -44,8 +44,8 @@ export default class App extends Component {
 ## Methods
 Name|Android|iOS|Description|
 ----|-------|---|-----------|
-saveToPNG|✓|✗|Save View to PNG file. Before the function is called, check that android has [write to file permissions](https://developer.android.com/training/data-storage/files)|
-saveToPNGBase64|✓|✗|Save View to PNG base64|
+saveToPNG|✓|✓|Save View to PNG file. Before the function is called, check that android has [write to file permissions](https://developer.android.com/training/data-storage/files)|
+saveToPNGBase64|✓|✓|Save View to PNG base64|
 
 ## License
 

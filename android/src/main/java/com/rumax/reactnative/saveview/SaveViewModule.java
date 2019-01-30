@@ -8,7 +8,7 @@ import com.facebook.react.bridge.ReactMethod;
 import java.io.File;
 
 public class SaveViewModule extends ReactContextBaseJavaModule {
-    private static final String NAME = "SaveView";
+    private static final String NAME = "RNSaveView";
     private ReactApplicationContext context;
 
     SaveViewModule(ReactApplicationContext reactContext) {
