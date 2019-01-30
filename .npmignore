@@ -9,3 +9,7 @@ PULL_REQUEST_TEMPLATE.md
 react-native-save-view-*.tgz
 android/*.iml
 android/build
+ios/RNSaveView/RNSaveView.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ios/RNSaveView/RNSaveView.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/UserInterfaceState.xcuserstate
+ios/RNSaveView/RNSaveView.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/xcschememanagement.plist
+ios/RNSaveView/RNSaveView.xcodeproj/project.xcworkspace/contents.xcworkspacedata
