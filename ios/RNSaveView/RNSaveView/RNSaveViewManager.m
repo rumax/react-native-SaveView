@@ -2,7 +2,7 @@
 
 @implementation RNSaveViewManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNSaveView)
 
 RCT_EXPORT_METHOD(saveToPNGBase64: (nonnull NSNumber *)reactTag resolver: (RCTPromiseResolveBlock)resolve rejecter: (RCTPromiseRejectBlock)reject) {
   dispatch_async(dispatch_get_main_queue(), ^{

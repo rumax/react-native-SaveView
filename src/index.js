@@ -1,7 +1,7 @@
 
 import { NativeModules, findNodeHandle } from 'react-native';
 
-const { SaveView } = NativeModules;
+const { RNSaveView } = NativeModules;
 
 const getReactTag = (view: ?React$ElementRef<*>) => {
   if (!view) {
@@ -19,10 +19,10 @@ const getReactTag = (view: ?React$ElementRef<*>) => {
 
 export default {
   saveToPNG: async (view: ?React$ElementRef<*>, path: string) => {
-    await SaveView.saveToPNG(getReactTag(view), path);
+    await RNSaveView.saveToPNG(getReactTag(view), path);
   },
   saveToPNGBase64: async (view: ?React$ElementRef<*>) => {
-    const base64 = await SaveView.saveToPNGBase64(getReactTag(view));
+    const base64 = await RNSaveView.saveToPNGBase64(getReactTag(view));
     return base64;
   },
 };
