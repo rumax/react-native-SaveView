@@ -22,5 +22,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'
 }
