@@ -2,12 +2,12 @@ package com.rumax.reactnative.saveview;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.view.View;
 import android.widget.ScrollView;
+
+import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.NativeViewHierarchyManager;
