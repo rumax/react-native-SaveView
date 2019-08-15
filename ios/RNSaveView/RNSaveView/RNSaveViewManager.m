@@ -43,50 +43,40 @@ RCT_EXPORT_METHOD(saveToPNG: (nonnull NSNumber *)reactTag filePath: (nonnull NSS
 
 - (UIImage *)snapshotReactView: (nonnull NSNumber *)reactTag {
     UIView *view = (UIView *)[self.bridge.uiManager viewForReactTag: reactTag];
-    // Store the original background color
-    UIColor* originalColor = view.backgroundColor;
-    // If the background color is not set it will default to white
-    if (originalColor == nil) {
-        view.backgroundColor = [UIColor whiteColor];
-    }
     
     UIImage *snapshot;
-    
     if ([view isKindOfClass: [RCTScrollView class]]) {
-        snapshot = [self snapshotScrollView: (RCTScrollView *)view];
+        RCTScrollView* rctScrollView = (RCTScrollView *)view;
+        snapshot = [self snapshotScrollView: rctScrollView.scrollView];
     } else {
-        snapshot = [self snapshotView: view];
+        snapshot = [self snapshotView: view withSize: view.frame.size];
     }
-    
-    // Restore the original view's background color
-    view.backgroundColor = originalColor;
+
     return snapshot;
 }
 
-- (UIImage *)snapshotView: (UIView *)view {
-  UIGraphicsBeginImageContext(CGSizeMake(view.frame.size.width, view.frame.size.height));
-  [view drawViewHierarchyInRect: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) afterScreenUpdates: YES];
-  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-  
-  return image;
+- (UIImage *)snapshotScrollView: (UIScrollView *)scrollView {
+    // Store the original frame of the scrollview to restore later
+    CGRect originalFrame = scrollView.frame;
+    
+    // Set the frame to it's contentSize
+    scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+    
+    UIImage *image = [self snapshotView: scrollView withSize: scrollView.contentSize];
+    
+    // Return to the original frame of the scrollview
+    scrollView.frame = originalFrame;
+    
+    return image;
 }
 
-- (UIImage *)snapshotScrollView: (RCTScrollView *)scrollview {
-  // Store the original frame of the scrollview to restore later
-  CGRect originalFrame = scrollview.frame;
-  // Set the frame of the scrollview equal to it's contentsize
-  scrollview.frame = CGRectMake(0, 0, scrollview.contentSize.width, scrollview.contentSize.height);
-  
-  UIGraphicsBeginImageContext(scrollview.contentSize);
-  [scrollview.layer renderInContext: UIGraphicsGetCurrentContext()];
-  UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-  
-  // Set scrollview frame to original frame
-  scrollview.frame = originalFrame;
-  
-  return image;
+- (UIImage *)snapshotView: (UIView *)view withSize: (CGSize)size {
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    [view drawViewHierarchyInRect: CGRectMake(0, 0, size.width, size.height) afterScreenUpdates: YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void) saveImage: (UIImage *)image atFilepath: (NSString *)filePath {

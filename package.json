@@ -1,6 +1,6 @@
 {
   "name": "react-native-save-view",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "React native save View implementation",
   "main": "src/index.js",
   "scripts": {

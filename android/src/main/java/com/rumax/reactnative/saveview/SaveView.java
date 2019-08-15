@@ -76,8 +76,6 @@ public class SaveView {
 
     if (bgDrawable != null) {
       bgDrawable.draw(canvas);
-    } else {
-      canvas.drawColor(Color.WHITE);
     }
 
     view.draw(canvas);
