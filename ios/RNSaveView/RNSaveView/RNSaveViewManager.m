@@ -12,10 +12,10 @@ RCT_EXPORT_METHOD(saveToPNGBase64: (nonnull NSNumber *)reactTag resolver: (RCTPr
           if (base64Image != nil) {
               resolve(base64Image);
           } else {
-              reject(ERROR_INVALID_BASE_64, ERROR_MESSAGE_INVALID_BASE_64, nil);
+              reject(RNSV_ERROR_INVALID_BASE_64, RNSV_ERROR_MESSAGE_INVALID_BASE_64, nil);
           }
       } else {
-          reject(ERROR_INVALID_REACT_TAG, [NSString stringWithFormat: @"ReactTag passed: %@", reactTag], nil);
+          reject(RNSV_ERROR_INVALID_REACT_TAG, [NSString stringWithFormat: @"ReactTag passed: %@", reactTag], nil);
       }
   });
 }
@@ -27,7 +27,7 @@ RCT_EXPORT_METHOD(saveToPNG: (nonnull NSNumber *)reactTag filePath: (nonnull NSS
             [self saveImage: snapshot atFilepath: filePath];
             resolve(nil);
         } else {
-            reject(ERROR_INVALID_REACT_TAG, [NSString stringWithFormat: @"ReactTag passed: %@", reactTag], nil);
+            reject(RNSV_ERROR_INVALID_REACT_TAG, [NSString stringWithFormat: @"ReactTag passed: %@", reactTag], nil);
         }
     });
 }
@@ -43,7 +43,7 @@ RCT_EXPORT_METHOD(saveToPNG: (nonnull NSNumber *)reactTag filePath: (nonnull NSS
 
 - (UIImage *)snapshotReactView: (nonnull NSNumber *)reactTag {
     UIView *view = (UIView *)[self.bridge.uiManager viewForReactTag: reactTag];
-    
+
     UIImage *snapshot;
     if ([view isKindOfClass: [RCTScrollView class]]) {
         RCTScrollView* rctScrollView = (RCTScrollView *)view;
@@ -58,15 +58,15 @@ RCT_EXPORT_METHOD(saveToPNG: (nonnull NSNumber *)reactTag filePath: (nonnull NSS
 - (UIImage *)snapshotScrollView: (UIScrollView *)scrollView {
     // Store the original frame of the scrollview to restore later
     CGRect originalFrame = scrollView.frame;
-    
+
     // Set the frame to it's contentSize
     scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
-    
+
     UIImage *image = [self snapshotView: scrollView withSize: scrollView.contentSize];
-    
+
     // Return to the original frame of the scrollview
     scrollView.frame = originalFrame;
-    
+
     return image;
 }
 
@@ -75,7 +75,7 @@ RCT_EXPORT_METHOD(saveToPNG: (nonnull NSNumber *)reactTag filePath: (nonnull NSS
     [view drawViewHierarchyInRect: CGRectMake(0, 0, size.width, size.height) afterScreenUpdates: YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+
     return image;
 }
 
