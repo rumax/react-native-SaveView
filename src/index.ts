@@ -1,9 +1,11 @@
-
 import { NativeModules, findNodeHandle } from 'react-native';
 
 const { RNSaveView } = NativeModules;
 
-const getReactTag = (view: ?React$ElementRef<*>) => {
+// Duplicates definition from findNodeHandle (no export)
+type ViewType = null | number | React.Component<any, any> | React.ComponentClass<any>;
+
+const getReactTag = (view: ViewType) => {
   if (!view) {
     throw new Error('View has to be defined');
   }
@@ -18,10 +20,11 @@ const getReactTag = (view: ?React$ElementRef<*>) => {
 }
 
 export default {
-  saveToPNG: async (view: ?React$ElementRef<*>, path: string) => {
+  saveToPNG: async (view: ViewType, path: string) => {
     await RNSaveView.saveToPNG(getReactTag(view), path);
   },
-  saveToPNGBase64: async (view: ?React$ElementRef<*>) => {
+
+  saveToPNGBase64: async (view: ViewType) => {
     const base64 = await RNSaveView.saveToPNGBase64(getReactTag(view));
     return base64;
   },
